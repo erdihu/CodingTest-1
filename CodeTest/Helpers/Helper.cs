@@ -1,11 +1,9 @@
-﻿using System;
+﻿using CodeTest.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CodeTest.Models;
-using Newtonsoft.Json;
 
 namespace CodeTest.Helpers
 {
@@ -15,7 +13,7 @@ namespace CodeTest.Helpers
         {
             foreach (var item in data)
             {
-                //Grubbs' test or any other 
+                //Grubbs' test or any other to filter out noise
             }
             return null;
         }

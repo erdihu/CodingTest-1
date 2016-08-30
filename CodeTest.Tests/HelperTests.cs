@@ -13,14 +13,11 @@ namespace CodeTest.Tests
     {
         private BankModel[] _data;
 
-        public HelperTests()
-        {
-            _data = JsonConvert.DeserializeObject<BankModel[]>(File.ReadAllText("C:\\Logs\\data.json"));
-        }
-
         [Test]
         public void FilterData_ListIncludesPositiveAndNegative_ShouldReturnNegatives()
         {
+            _data = JsonConvert.DeserializeObject<BankModel[]>(File.ReadAllText("C:\\Logs\\data.json"));
+
             var filtered = Helpers.Helper.FilterData(_data);
 
             Assert.IsTrue(!filtered.Equals(_data));
@@ -37,7 +34,7 @@ namespace CodeTest.Tests
         [Test]
         public void FilterData_ListIsEmtpy_ShouldReturnEmpty()
         {
-
+            _data = JsonConvert.DeserializeObject<BankModel[]>(File.ReadAllText("C:\\Logs\\data.json"));
             var bm = new BankModel
             {
                 AccountTransactions = new List<BankTransactionModel>()
@@ -49,9 +46,20 @@ namespace CodeTest.Tests
         }
 
         [Test]
-        public void GetBalance_ListHasPositivesAndNegatives_ShouldReturnSum()
+        public void GetBalance_ListHasPositivesAndNegatives_ShouldReturn190()
         {
-            Assert.IsTrue(Helpers.Helper.GetBalance(_data[0]).Equals(190));
+            _data = JsonConvert.DeserializeObject<BankModel[]>(File.ReadAllText("C:\\Logs\\data.json"));
+
+            Assert.AreEqual(Helpers.Helper.GetBalance(_data[0]), 190);
+
+        }
+
+        [Test]
+        public void GetTimeInterval_PaymentIsBiWeekly_ShouldReturnBiWeekly()
+        {
+            _data = JsonConvert.DeserializeObject<BankModel[]>(File.ReadAllText("C:\\Logs\\data.json"));
+
+            Assert.AreEqual(Helpers.Helper.GetTimeInterval(_data[0], "Gym"), "Biweekly payment");
         }
     }
 }

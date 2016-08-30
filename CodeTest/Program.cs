@@ -18,7 +18,7 @@ namespace CodeTest
             var filteredData = Helper.FilterData(data);
 
             Console.WriteLine(Helper.GetTimeInterval(filteredData[0], "Video streaming"));
-            Console.WriteLine(Helper.GetTimeInterval(filteredData[0], "Gym"));
+            Console.WriteLine(Helper.GetTimeInterval(filteredData[0], "Gym")); //Fails
         }
 
 
