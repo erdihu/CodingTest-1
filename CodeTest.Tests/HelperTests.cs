@@ -62,5 +62,21 @@ namespace CodeTest.Tests
             //The following will fail
             Assert.AreEqual(Helpers.Helper.GetTimeInterval(_data[0], "Gym"), "Biweekly payment");
         }
+
+        [Test]
+        public void IsOutlier_GiveProvenData_ShouldReturnOutsider()
+        {
+            double[] data = { 199.31, 199.53, 200.19, 200.82, 201.92, 201.95, 202.18, 245.57 };
+            bool[] actual = { false, false, false, false, false, false, false, true };
+
+            bool[] test = new bool[8];
+
+            for (int i = 0; i < data.Length; i++)
+            {
+                test[i] = Helpers.Helper.IsOutlier(data, data[i]);
+            }
+
+            Assert.AreEqual(actual, test);
+        }
     }
 }
