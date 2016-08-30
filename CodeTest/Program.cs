@@ -7,6 +7,8 @@ namespace CodeTest
     {
         static void Main(string[] args)
         {
+            //Copy data.json under C:\Logs
+
             var data = Helper.GetSampleData();
 
             foreach (var item in data)
@@ -17,8 +19,15 @@ namespace CodeTest
 
             var filteredData = Helper.FilterData(data);
 
-            Console.WriteLine(Helper.GetTimeInterval(filteredData[0], "Video streaming"));
-            Console.WriteLine(Helper.GetTimeInterval(filteredData[0], "Gym")); //Fails
+            Console.Write("Video streaming: ");
+            Console.Write(Helper.GetTimeInterval(filteredData[0], "Video streaming"));
+
+            Console.WriteLine();
+
+            Console.Write("Gym: ");
+            Console.Write(Helper.GetTimeInterval(filteredData[0], "Gym")); //Fails
+
+            Console.WriteLine();
         }
 
 

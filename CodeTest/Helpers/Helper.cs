@@ -9,13 +9,26 @@ namespace CodeTest.Helpers
 {
     public static class Helper
     {
-        public static List<BankTransactionModel> FilterOutliers(List<BankTransactionModel> data)
+        //This method applies Grubbs' test on a target in a given series. 
+        //Implementation taken from http://graphpad.com/support/faqid/1598/ and http://www.real-statistics.com/students-t-distribution/identifying-outliers-using-t-distribution/grubbs-test/
+        //This test seems to work for single outlier but may not work for multiples.
+
+        public static bool IsOutlier(IEnumerable<double> sample, double target)
         {
-            foreach (var item in data)
-            {
-                //Grubbs' test or any other to filter out noise
-            }
-            return null;
+            var numbers = sample.ToArray();
+            var mean = numbers.Average();
+            var sumOfSquaresOfDifferences = numbers.Select(val => Math.Pow((val - mean), 2)).Sum();
+            var size = numbers.Length;
+            var sd = Math.Sqrt(sumOfSquaresOfDifferences / size);
+            const double alpha = 0.05; //or 0.01
+            var sig = alpha / size;
+            var degreeFreedom = size - 2;
+            var tCriticalVal = MathNet.Numerics.ExcelFunctions.TInv((1 - sig) / 100, degreeFreedom);
+            var x = Math.Pow(tCriticalVal, 2);
+            var gCriticalVal = (size - 1) * tCriticalVal / Math.Sqrt(size * (degreeFreedom + x));
+            var g = (mean - target) / sd;
+
+            return Math.Abs(g) > Math.Abs(gCriticalVal);
         }
 
         public static string GetTimeInterval(BankModel bankAccount, string transactionText)
@@ -28,7 +41,27 @@ namespace CodeTest.Helpers
                 .OrderBy(dt => dt.TransactionDate)
                 .ToList();
 
-            //Here we should call FilterOutliers() method and continue on working with the returned list
+            //Take only the transaction amounts
+            var amounts = grouped.Select(a => a.TransactionAmount);
+
+            var possibleOutliers = new List<BankTransactionModel>();
+
+            foreach (var item in grouped)
+            {
+                if (IsOutlier(amounts, item.TransactionAmount))
+                {
+                    possibleOutliers.Add(item);
+                }
+            }
+
+            //Remove outliers.
+            if (possibleOutliers.Any())
+            {
+                foreach (var item in possibleOutliers)
+                {
+                    grouped.Remove(item);
+                }
+            }
 
             var timeDiffs = new List<TimeSpan>();
             for (var i = 1; i < grouped.Count; i++)

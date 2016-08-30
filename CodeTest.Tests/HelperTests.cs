@@ -59,6 +59,7 @@ namespace CodeTest.Tests
         {
             _data = JsonConvert.DeserializeObject<BankModel[]>(File.ReadAllText("C:\\Logs\\data.json"));
 
+            //The following will fail
             Assert.AreEqual(Helpers.Helper.GetTimeInterval(_data[0], "Gym"), "Biweekly payment");
         }
     }

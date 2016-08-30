@@ -1,0 +1,139 @@
+[
+{
+  "AccountId": 1,
+  "AccountOwner": "Owner1",
+  "AccountTransactions": [
+    {
+      "TransactionDate": "2016-08-01T00:00:00",
+      "TransactionText": "Gym",
+      "EventType": 1,
+      "Recipient": "123-456",
+      "TransactionAmount": -200.0
+    },
+    {
+      "TransactionDate": "2016-07-23T00:00:00",
+      "TransactionText": "Video streaming",
+      "EventType": 2,
+      "Recipient": "",
+      "TransactionAmount": -99.0
+    },
+    {
+      "TransactionDate": "2016-07-18T00:00:00",
+      "TransactionText": "Gym",
+      "EventType": 1,
+      "Recipient": "123-456",
+      "TransactionAmount": -200.0
+    },
+    {
+      "TransactionDate": "2016-07-04T00:00:00",
+      "TransactionText": "Gym",
+      "EventType": 1,
+      "Recipient": "123-456",
+      "TransactionAmount": -200.0
+    },
+    {
+      "TransactionDate": "2016-06-28T00:00:00",
+      "TransactionText": "Gym",
+      "EventType": 1,
+      "Recipient": "123-456",
+      "TransactionAmount": -50.0
+    },
+    {
+      "TransactionDate": "2016-06-25T00:00:00",
+      "TransactionText": "Salary",
+      "EventType": 2,
+      "Recipient": "",
+      "TransactionAmount": 1337.0
+    },
+    {
+      "TransactionDate": "2016-06-22T00:00:00",
+      "TransactionText": "Video streaming",
+      "EventType": 2,
+      "Recipient": "",
+      "TransactionAmount": -99.0
+    },
+    {
+      "TransactionDate": "2016-06-20T00:00:00",
+      "TransactionText": "Gym",
+      "EventType": 1,
+      "Recipient": "123-456",
+      "TransactionAmount": -200.0
+    },
+    {
+      "TransactionDate": "2016-05-23T00:00:00",
+      "TransactionText": "Video streaming",
+      "EventType": 1,
+      "Recipient": "123-456",
+      "TransactionAmount": -99.0
+    }
+  ]},
+  {
+  "AccountId": 2,
+  "AccountOwner": "Owner2",
+  "AccountTransactions": [
+    {
+      "TransactionDate": "2016-08-01T00:00:00",
+      "TransactionText": "Gym",
+      "EventType": 1,
+      "Recipient": "123-456",
+      "TransactionAmount": -200.0
+    },
+    {
+      "TransactionDate": "2016-07-23T00:00:00",
+      "TransactionText": "Video streaming",
+      "EventType": 2,
+      "Recipient": "",
+      "TransactionAmount": -99.0
+    },
+    {
+      "TransactionDate": "2016-07-18T00:00:00",
+      "TransactionText": "Gym",
+      "EventType": 1,
+      "Recipient": "123-456",
+      "TransactionAmount": -200.0
+    },
+    {
+      "TransactionDate": "2016-07-04T00:00:00",
+      "TransactionText": "Gym",
+      "EventType": 1,
+      "Recipient": "123-456",
+      "TransactionAmount": -200.0
+    },
+    {
+      "TransactionDate": "2016-06-28T00:00:00",
+      "TransactionText": "Gym",
+      "EventType": 1,
+      "Recipient": "123-456",
+      "TransactionAmount": -50.0
+    },
+    {
+      "TransactionDate": "2016-06-25T00:00:00",
+      "TransactionText": "Salary",
+      "EventType": 2,
+      "Recipient": "",
+      "TransactionAmount": 1337.0
+    },
+    {
+      "TransactionDate": "2016-06-22T00:00:00",
+      "TransactionText": "Video streaming",
+      "EventType": 2,
+      "Recipient": "",
+      "TransactionAmount": -99.0
+    },
+    {
+      "TransactionDate": "2016-06-20T00:00:00",
+      "TransactionText": "Gym",
+      "EventType": 1,
+      "Recipient": "123-456",
+      "TransactionAmount": -200.0
+    },
+    {
+      "TransactionDate": "2016-05-23T00:00:00",
+      "TransactionText": "Video streaming",
+      "EventType": 1,
+      "Recipient": "123-456",
+      "TransactionAmount": -99.0
+    }
+  ]
+}
+]
