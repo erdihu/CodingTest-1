@@ -19,14 +19,14 @@ namespace CodeTest.Helpers
             var mean = numbers.Average();
             var sumOfSquaresOfDifferences = numbers.Select(val => Math.Pow((val - mean), 2)).Sum();
             var size = numbers.Length;
-            var sd = Math.Sqrt(sumOfSquaresOfDifferences / size);
-            const double alpha = 0.05; //or 0.01
-            var sig = alpha / size;
+            var stdDev = Math.Sqrt(sumOfSquaresOfDifferences / size); 
+            const double alpha = 0.05; //or 0.01 for stricter test
+            var sig = alpha / 2*size; //2-sided
             var degreeFreedom = size - 2;
             var tCriticalVal = MathNet.Numerics.ExcelFunctions.TInv((1 - sig) / 100, degreeFreedom);
             var x = Math.Pow(tCriticalVal, 2);
             var gCriticalVal = (size - 1) * tCriticalVal / Math.Sqrt(size * (degreeFreedom + x));
-            var g = (mean - target) / sd;
+            var g = (mean - target) / stdDev;
 
             return Math.Abs(g) > Math.Abs(gCriticalVal);
         }

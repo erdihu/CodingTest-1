@@ -79,11 +79,11 @@
       "TransactionAmount": -200.0
     },
     {
-      "TransactionDate": "2016-07-23T00:00:00",
+      "TransactionDate": "2016-07-10T00:00:00",
       "TransactionText": "Video streaming",
       "EventType": 2,
       "Recipient": "",
-      "TransactionAmount": -99.0
+      "TransactionAmount": -39.0
     },
     {
       "TransactionDate": "2016-07-18T00:00:00",
@@ -114,11 +114,11 @@
       "TransactionAmount": 1337.0
     },
     {
-      "TransactionDate": "2016-06-22T00:00:00",
+      "TransactionDate": "2016-06-05T00:00:00",
       "TransactionText": "Video streaming",
       "EventType": 2,
       "Recipient": "",
-      "TransactionAmount": -99.0
+      "TransactionAmount": -35.0
     },
     {
       "TransactionDate": "2016-06-20T00:00:00",
@@ -128,7 +128,7 @@
       "TransactionAmount": -200.0
     },
     {
-      "TransactionDate": "2016-05-23T00:00:00",
+      "TransactionDate": "2016-05-18T00:00:00",
       "TransactionText": "Video streaming",
       "EventType": 1,
       "Recipient": "123-456",

@@ -17,17 +17,24 @@ namespace CodeTest
 
             }
 
+            Console.WriteLine();
+
             var filteredData = Helper.FilterData(data);
 
-            Console.Write("Video streaming: ");
-            Console.Write(Helper.GetTimeInterval(filteredData[0], "Video streaming"));
+            foreach (var account in filteredData)
+            {
+                Console.WriteLine($"### RESULT FOR {account.AccountOwner}\n");
+                Console.Write("Video streaming: ");
+                Console.Write(Helper.GetTimeInterval(account, "Video streaming"));
 
-            Console.WriteLine();
+                Console.WriteLine();
 
-            Console.Write("Gym: ");
-            Console.Write(Helper.GetTimeInterval(filteredData[0], "Gym")); //Fails
-
-            Console.WriteLine();
+                Console.Write("Gym: ");
+                Console.Write(Helper.GetTimeInterval(account, "Gym"));
+                Console.WriteLine();
+                Console.WriteLine();
+            }
+            
         }
 
 
