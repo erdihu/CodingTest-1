@@ -9,13 +9,13 @@ namespace CodeTest
         {
             var data = Helper.GetSampleData();
 
-            var filteredData = Helper.FilterData(data);
-
-            foreach (var item in filteredData)
+            foreach (var item in data)
             {
                 Console.WriteLine($"Account id {item.AccountId} has {Helper.GetBalance(item)} balance.");
 
             }
+
+            var filteredData = Helper.FilterData(data);
 
             Console.WriteLine(Helper.GetTimeInterval(filteredData[0], "Video streaming"));
             Console.WriteLine(Helper.GetTimeInterval(filteredData[0], "Gym"));

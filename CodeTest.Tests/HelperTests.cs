@@ -1,26 +1,57 @@
 ﻿using CodeTest.Models;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
+using NUnit.Framework;
+using System.Collections.Generic;
 using System.IO;
+using Assert = NUnit.Framework.Assert;
 
 
 namespace CodeTest.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class HelperTests
     {
-        private BankModel[] data;
-        [TestInitialize]
-        public void TestInitialize()
+        private BankModel[] _data;
+
+        public HelperTests()
         {
-            data = JsonConvert.DeserializeObject<BankModel[]>(File.ReadAllText("C:\\Logs\\data.json"));
+            _data = JsonConvert.DeserializeObject<BankModel[]>(File.ReadAllText("C:\\Logs\\data.json"));
         }
 
-        [TestMethod]
+        [Test]
         public void FilterData_ListIncludesPositiveAndNegative_ShouldReturnNegatives()
         {
-            var after = Helpers.Helper.FilterData(data);
+            var filtered = Helpers.Helper.FilterData(_data);
 
+            Assert.IsTrue(!filtered.Equals(_data));
+
+            foreach (var account in filtered)
+            {
+                foreach (var item in account.AccountTransactions)
+                {
+                    Assert.IsTrue(item.TransactionAmount < 0);
+                }
+            }
+        }
+
+        [Test]
+        public void FilterData_ListIsEmtpy_ShouldReturnEmpty()
+        {
+
+            var bm = new BankModel
+            {
+                AccountTransactions = new List<BankTransactionModel>()
+            };
+
+            var filtered = Helpers.Helper.FilterData(new[] { bm });
+
+            Assert.IsEmpty(filtered);
+        }
+
+        [Test]
+        public void GetBalance_ListHasPositivesAndNegatives_ShouldReturnSum()
+        {
+            Assert.IsTrue(Helpers.Helper.GetBalance(_data[0]).Equals(190));
         }
     }
 }
