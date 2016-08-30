@@ -27,11 +27,12 @@ namespace CodeTest
         {
             var transactions = bankAccount.AccountTransactions.ToArray();
 
-            for (int i = transactions.Length; i-- > 0;)
-            {
-                transactions[i]
-            }
+            var grouped = transactions.Where(t => t.TransactionText.Equals(transactionText));
 
+            foreach (var transaction in grouped)
+            {
+                //logic
+            }
 
         }
 
@@ -42,36 +43,25 @@ namespace CodeTest
 
         public static double GetBalance(CcModel card)
         {
-            return card.CardTransactions.Sum(x => x.Amount) * -1; //Card amounts are always positive but balance should be calculated as negative
+            //Card amounts are always positive but balance should be calculated as negative
+            return card.CardTransactions.Sum(x => x.Amount) * -1;
         }
 
-        public static BankModel[] FilterData(BankModel[] data)
+        public static List<BankModel> FilterData(IEnumerable<BankModel> data)
         {
+            var results = new List<BankModel>();
+
             foreach (var bankObject in data)
             {
-                var toBeDeleted = new List<BankTransactionModel>();
-                foreach (var item in bankObject.AccountTransactions)
-                {
-                    if (item.TransactionAmount > 0)
-                    {
-                        toBeDeleted.Add(item);
-                    }
-                }
-
-                //Delete
-                foreach (var item in toBeDeleted)
-                {
-                    bankObject.AccountTransactions.Remove(item);
-                }
-
+                bankObject.AccountTransactions.RemoveAll(x => x.TransactionAmount > 0);
 
                 if (!bankObject.AccountTransactions.Any())
-                {
-                    return null;
-                }
+                    continue;
+
+                results.Add(bankObject);
             }
 
-            return data;
+            return results;
         }
 
         public static BankModel GetSampleData()
