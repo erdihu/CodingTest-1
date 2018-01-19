@@ -1,4 +1,4 @@
-#Assignment 
+# Assignment 
 We work with a lot of bank information. To give you a sense of how that is we want you to 
 create models for that kind of data. On the next page you will find some example data of a bank 
 account and a credit card. A bank account contains events of types transactions and payments. 
@@ -6,7 +6,7 @@ Payments have a recipient number while transactions don’t. Credit car
 card transactions. When you create the models have in mind that they should be​ extendable 
 with other types of accounts and transactions. 
 
-#Tasks 
+# Tasks 
 1. Implement a model to represent the bank data. 
 a. Model a credit card and its credit card transactions. 
 b. Model a bank account and its bank events. 
@@ -25,6 +25,6 @@ streaming” occurs monthly. 
 b. Create a unit test with the example bank account and detect that “Gym” occurs 
 biweekly. The transaction at 2016.06.28 should be considered as noise. 
 
-#Data
+# Data
 *Data available as data.json in the solution*
 ![Image of Data](https://vgy.me/xb5xdt.png)
